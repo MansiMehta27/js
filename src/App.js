@@ -32,7 +32,8 @@ function App() {
       let intro=()=>{
         console.log("mansi mehta");
       }
-      intro();
+       intro()
+       
   return (
     <div className="App">
       <header className="App-header">
