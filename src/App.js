@@ -100,13 +100,76 @@ function App() {
       //  console.log(res);
 
       //isarray//
-      let arr=[10,20,30,40,50];
-      let res = Array.isArray(arr);
-      console.log(res);
+
+      // let arr=[10,20,30,40,50];
+      // let res = Array.isArray(arr);
+      // console.log(res);
+
+      //map//
+      // const numbers = [1, 2, 3, 4];
+      // const doubled = numbers.map(item => item * 2);
+      // console.log(doubled); // [2, 4, 6, 8]
+
+      //filter//
+
+      //map//
+
+      // let array =[
+      //   {id:101,name:"binal",quantity: 25,price: 150,expiry: 2022,status: true},
+      //   {id:102,name:"Abacavir",quantity: 20,price: 200,expiry: 2024,status: true},
+      //   {id:103,name:"Eltrombopag",quantity: 35,price: 250,expiry: 2025,status: false},
+      //   {id:104,name:"'Meloxicam'",quantity: 40,price: 300,expiry: 2026,status: true},
+      //   {id:105,name:"biAllopurinol",quantity: 45,price: 450,expiry: 2027,status: false},
+
+      // ];
+      // let map = array.map(x=>console.log(x.id,x.quantity,x.price,x.expiry,x.status));
+
+        //filter employe//
+
+      //   function canVote(expiry) {
+      //     return expiry >= 300;
+      // }
+    
+      // function func() {
+      //     let filtered = [2020,2021,2023,2024,2025].filter(canVote);
+      //    console.log(filtered);
+      // }
+      // func();
+
+    
 
 
+     //filter//
+    //   function canVote(salary) {
+    //     return price >= 300;
+    //  }
+  
+    // function func() {
+    //     let filtered = [200,250,300,350,400].filter(canVote);
+    //    console.log(filtered);
+    // }
+    // func();
 
-  return (
+      //reduces//
+    // let array = [20000,30000,40000,45000,50000];
+    // let ini = 0;
+    // let sum = array.reduce(
+    //   (pre,cur)=>pre+cur,
+    //   ini
+    // );
+    //  console.log(sum);
+
+
+    //reduces bounse//
+    let array = [200,300,400,450,650];
+    let ini = 0;
+    let sum = array.reduce(
+    (pre,cur)=>pre+cur,
+     ini
+     );
+      console.log(sum);
+    
+      return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -127,3 +190,12 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+
+
+
+// https://www.youtube.com/channel/UCe1m4T7e7yJwMbSf0ffb_ig
