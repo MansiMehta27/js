@@ -226,40 +226,74 @@ function App() {
   // let ans =filterdata.reduce((acc,d,i)=>acc+d.price,0);
   // console.log(ans);
 
+    //array //
+  //copy//
+  //    let arr =[10,20,30,40,50];
+  //    //copy//
+  //    let arr1=[...arr];
+  //    console.log(arr1);
+  //  //merge//
+   
+  //  let arr2=[99,...arr,100];
+  //  console.log(arr2);
 
+  //  //destructure//
+
+  //  let [maths,eng,guj,ss,sci]=arr;
+  //  console.log(ss);
+
+  //  //objesct//
+
+    let obj = {
+     id:10,
+     name:"mansi"
+    };
+
+   //copy//
+   let obj1={...obj};
+   console.log(obj1);
+   //copy//
+
+   //merge//
+   let obj2={
+     ...obj,
+     place:"surat",
+     name:"meera"
+   };
+   console.log(obj2);
+
+   //desturing//
+
+   let {id,name}=obj;
+   console.log(id,name);
 
   // filter&reduces//
 
-  let abc = data
-    .filter((d, i) => d.expiry >= 2022)
-    .reduce((acc, d, i) => acc + d.price, 0);
+   let abc = data
+  .filter((d, i) => d.expiry >= 2022)
+  .reduce((acc, d, i) => acc + d.price, 0);
 
   console.log(abc);
 
+//project//
 
 
-  //reduces bounse//
-
-
-  return (
+return (
     <>
-      <table>
+      <table border="1">
         <tr>
           <th>id</th>
           <th>Name</th>
           <th>price</th>
           <th>quantity</th>
           <th>expiry</th>
-          <th>total</th>
+          <th>Total</th>
+          
          
-
-          <th rowspan="5">1200</th>
+        
         </tr>
 
-      
-
-
-        {
+      {
           data.map((value, index) => {
             return (
           <tr>
@@ -268,6 +302,7 @@ function App() {
                 <td>{value.price}</td>
                 <td>{value.quantity}</td>
                 <td>{value.expiry}</td>
+               {index===0 ? <td rowspan={data.length}>{abc}</td>:null}
                 
             </tr>
             )
