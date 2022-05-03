@@ -2,313 +2,110 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  // let a = 10;
-  // console.log(a);
-  {
-    // let a;
-    // a=20;
-    // console.log(a);
-  }
-  {
-    // const b=40;
-    // console.log(b);
-
-  }
-  // {
-  //   const b;
-  //   b=23;
-  //   console.log(b);
-  // }   //error
-
-  {
-    // let a=45;
-    // a=a+2;
-    // console.log(a);
-  }
-
-  // let arr =[10,20,30,40,50];
-  // arr.map((a,i) => console.log(a));
-
-  // let intro=()=>{
-  //   console.log("mansi mehta");
-  // }
-  //  intro()
-
-
-  //array//
-
-
-  //  let arr = [10,"mansi",20,30,40,50];
-  //  console.log(arr[4]);
-
-  //object//
-
-
-  //  let obj ={
-  //    id:10,
-  //    age:20,
-  //    per:30
-
-  //  }
-  //  console.log(obj.age);
-
-  //push//
-
-  //  let arr = [10,"mansi",20,30,40,50];
-  //  arr.push(99);
-
-  //  console.log(arr);
-
-  //unshift//
-
-  //  let arr = [10,"mansi",20,30,40,50];
-  //  arr.unshift(23);
-  //  console.log(arr);
-
-  // pop //
-
-  // let arr =[10,20,30,40,50];
-  // arr.pop();
-  // console.log(arr);
-
-  //shift//
-
-  // let arr =[10,20,30,40,50];
-  // arr.shift();
-  // console.log(arr);
-
-  //splice//
-
-  //    let arr =[10,20,30,40,50];
-  //   arr.splice(3,0,99);
-  //  console.log(arr);
-
-  //tostring//
-
-  //  let arr = [10,20,30,40,50];
-  //  console.log(arr.toString());
-
-  //some//
-  // let arr = [10,20,30,40,50];
-  // let res=arr.some((a)=>a>100);
-  // console.log(res);
-
-  //find//
-
-  //  let arr = [10,20,30,40,50];
-  //  let res=arr.find((a)=>a>10);
-  //  console.log(res);
-
-  //isarray//
-
-  // let arr=[10,20,30,40,50];
-  // let res = Array.isArray(arr);
-  // console.log(res);
-
-  //map//
-  // const numbers = [1, 2, 3, 4];
-  // const doubled = numbers.map(item => item * 2);
-  // console.log(doubled); // [2, 4, 6, 8]
-
-  //filter//
-
-  //map//
-
-  // let array =[
-  //   {id:101,name:"binal",quantity: 25,price: 150,expiry: 2022,status: true},
-  //   {id:102,name:"Abacavir",quantity: 20,price: 200,expiry: 2024,status: true},
-  //   {id:103,name:"Eltrombopag",quantity: 35,price: 250,expiry: 2025,status: false},
-  //   {id:104,name:"'Meloxicam'",quantity: 40,price: 300,expiry: 2026,status: true},
-  //   {id:105,name:"biAllopurinol",quantity: 45,price: 450,expiry: 2027,status: false},
-
-  // ];
-  // let map = array.map(x=>console.log(x.id,x.quantity,x.price,x.expiry,x.status));
-
-  //filter employe//
-
-  //   function canVote(expiry) {
-  //     return expiry >= 300;
-  // }
-
-  // function func() {
-  //     let filtered = [2020,2021,2023,2024,2025].filter(canVote);
-  //    console.log(filtered);
-  // }
-  // func();
-
-
-
-
-  //filter//
-  //   function canVote(salary) {
-  //     return price >= 300;
-  //  }
-
-  // function func() {
-  //     let filtered = [200,250,300,350,400].filter(canVote);
-  //    console.log(filtered);
-  // }
-  // func();
-
-  //reduces//
-  // let array = [20000,30000,40000,45000,50000];
-  // let ini = 0;
-  // let sum = array.reduce(
-  //   (pre,cur)=>pre+cur,
-  //   ini
-  // );
-  //  console.log(sum);
-
-
-  // let array = [200,300,400,450,650];
-  // let ini = 0;
-  // let sum = array.reduce(
-  // (pre,cur)=>pre+cur,
-  //  ini
-  //  );
-  //   console.log(sum);
-
+ 
 
   const data = [
     {
-      id: 101,
-      name: 'Abacavir',
-      quantity: 25,
-      price: 150,
-      expiry: 2022,
+      name: "amit",
+      age: 35,
+      salary: 40000,
+      bonus: 1000,
       status: true
     },
     {
-      id: 102,
-      name: 'Eltrombopag',
-      quantity: 90,
-      price: 550,
-      expiry: 2021,
-      status: true
-    },
-    {
-      id: 103,
-      name: 'Meloxicam',
-      quantity: 85,
-      price: 450,
-      expiry: 2025,
+      name: "ajay",
+      age: 25,
+      salary: 38000,
+      bonus: 2000,
       status: false
     },
     {
-      id: 104,
-      name: 'Allopurinol',
-      quantity: 50,
-      price: 600,
-      expiry: 2023,
+      name: "mayur",
+      age: 23,
+      salary: 50000,
+      bonus: 500,
       status: true
     },
     {
-      id: 105,
-      name: 'Phenytoin',
-      quantity: 63,
-      price: 250,
-      expiry: 2021,
-      status: false
-    }
+      name: "jay",
+      age: 29,
+      salary: 35000,
+      bonus: 600,
+      status: true
+    },
+    {
+      name: "raj",
+      age: 33,
+      salary: 22000,
+      bonus: 2000,
+      status: true
+    },
   ];
-  //map function//
+
+  data.map((value, index) => console.log(value.age, value.name));
 
 
-  // data.map((value,index)=>console.log(value.id,value.name));
+   let filterdata = data.filter((d, i) => d.salary >= 35000);
 
-  // //filterdata function//
+  console.log(filterdata);
 
-  // let  filterdata=data.filter((d,i)=>d.expiry>=2022);
-  // console.log(filterdata);
+ // reduce function//
 
-  // //reduce function//
+ let ans =filterdata.reduce((acc,d,i)=>acc+d.bonus,0);
+  console.log(ans);
 
-  // let ans =filterdata.reduce((acc,d,i)=>acc+d.price,0);
-  // console.log(ans);
 
-    //array //
-  //copy//
-  //    let arr =[10,20,30,40,50];
-  //    //copy//
-  //    let arr1=[...arr];
-  //    console.log(arr1);
-  //  //merge//
-   
-  //  let arr2=[99,...arr,100];
-  //  console.log(arr2);
-
-  //  //destructure//
-
-  //  let [maths,eng,guj,ss,sci]=arr;
-  //  console.log(ss);
-
-  //  //objesct//
-
-    let obj = {
-     id:10,
-     name:"mansi"
-    };
-
-   //copy//
-   let obj1={...obj};
-   console.log(obj1);
-   //copy//
-
-   //merge//
-   let obj2={
-     ...obj,
-     place:"surat",
-     name:"meera"
-   };
-   console.log(obj2);
-
-   //desturing//
-
-   let {id,name}=obj;
-   console.log(id,name);
-
-  // filter&reduces//
-
+  //filter&reduces//
    let abc = data
-  .filter((d, i) => d.expiry >= 2022)
-  .reduce((acc, d, i) => acc + d.price, 0);
+     .filter((d, i) => d.salary >= 35000)
+     .reduce((acc, d, i) => acc + d.bonus, 0);
 
   console.log(abc);
+
+  let xyz = data
+  .filter((d, i) => d.salary+d.bonus)
+  .reduce((acc, d, i) => acc + d.salary+d.bonus, 0);
+
+console.log(xyz);
+  
+  
 
 //project//
 
 
 return (
     <>
-      <table border="1">
+     { <table border="1">
         <tr>
-          <th>id</th>
-          <th>Name</th>
-          <th>price</th>
-          <th>quantity</th>
-          <th>expiry</th>
-          <th>Total</th>
           
-         
-        
+          <td>name</td>
+          <td>age</td>
+          <td>salary</td>
+          <td>bonus</td>
+         <td>salary+bonus</td>
+         <td>total</td>
         </tr>
-
-      {
+        {
           data.map((value, index) => {
             return (
-          <tr>
-                <td>{value.id}</td>
+              <tr>
                 <td>{value.name}</td>
-                <td>{value.price}</td>
-                <td>{value.quantity}</td>
-                <td>{value.expiry}</td>
-               {index===0 ? <td rowspan={data.length}>{abc}</td>:null}
-                
-            </tr>
+                <td>{value.age}</td>
+                <td>{value.salary}</td>
+                <td>{value.bonus}</td>
+                <td>{value.salary+value.bonus}</td>
+              
+                 {index === 0 ? <td rowspan={data.length}>{xyz}</td> : null} 
+
+                          
+                          
+          </tr>
             )
           })
         }
-      </table>
+      </table> 
+      
+    }
     </>
   );
 }
