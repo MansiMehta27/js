@@ -42,34 +42,11 @@ function App() {
     },
   ];
 
-  data.map((value, index) => console.log(value.age, value.name));
-
-
-   let filterdata = data.filter((d, i) => d.salary >= 35000);
-
-  console.log(filterdata);
-
- // reduce function//
-
- let ans =filterdata.reduce((acc,d,i)=>acc+d.bonus,0);
-  console.log(ans);
-
-
-  //filter&reduces//
-   let abc = data
-     .filter((d, i) => d.salary >= 35000)
-     .reduce((acc, d, i) => acc + d.bonus, 0);
-
-  console.log(abc);
-
-  let xyz = data
-  .filter((d, i) => d.salary+d.bonus)
-  .reduce((acc, d, i) => acc + d.salary+d.bonus, 0);
-
-console.log(xyz);
+  // data.map((value, index) => console.log(value.age, value.name));
   
+  let filterdata = data.filter((d, i) => (d.status === true));
+  let xyz =filterdata.reduce((acc,d)=> acc+d.salary + d.bonus,0);  
   
-
 //project//
 
 
@@ -82,11 +59,12 @@ return (
           <td>age</td>
           <td>salary</td>
           <td>bonus</td>
-         <td>salary+bonus</td>
-         <td>total</td>
+          <td>salary+bonus</td>
+          <td>status</td>
+          <td>total</td>
         </tr>
         {
-          data.map((value, index) => {
+          filterdata.map((value, index) => {
             return (
               <tr>
                 <td>{value.name}</td>
@@ -94,12 +72,12 @@ return (
                 <td>{value.salary}</td>
                 <td>{value.bonus}</td>
                 <td>{value.salary+value.bonus}</td>
+                <td>{value.status.toString()}</td>
+                
               
                  {index === 0 ? <td rowspan={data.length}>{xyz}</td> : null} 
 
-                          
-                          
-          </tr>
+            </tr>
             )
           })
         }
