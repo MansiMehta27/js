@@ -9,10 +9,10 @@ function App() {
 
   return (
     <>
-      <Country />
-      <City />
-      <Countryfun/>
-      <Cityfun/>
+      {/* <Country />
+      <City /> */}
+      <Countryfun gdpval={8.9}/>
+      {/* <Cityfun/> */}
     </>
   );
 }
