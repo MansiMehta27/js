@@ -8,11 +8,19 @@ import Branch from './Container/Country/Branch';
 import Time from './Container/Country/Time/Time';
 import Timefun from './Container/Country/Time/Timefun';
 
+{/* <City/> */}
+{/* <Country/> */}
+{/* <Countryfun/> */}
+  //  <Cityfun/>
+  // <Branch/>
+  // <Time/>
+  // <Timefun/>
+
 import React, { useEffect, useState } from 'react';
 import Home from './Container/Country/Home/Home';
 import Loading from './Componets/Loading/Loading';
-  
-   const HomeWithLoding=Loading(Home)
+import Course from './Container/Country/Course';
+const HomeWithLoding=Loading(Home)
 
 function App() {
    const [loading, setloading]=useState(false);
@@ -44,6 +52,6 @@ function App() {
     </div>
   );
 }
-
+    
 export default App;
 
