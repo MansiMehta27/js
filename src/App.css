@@ -1,5 +1,14 @@
 .App {
   text-align: center;
+  
+}
+h1{
+  color: red;
+}
+button{
+    padding: 50px;
+    background-color: aquamarine;
+    margin-right: 15px;
 }
 
 .App-logo {
