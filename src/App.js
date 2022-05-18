@@ -1,35 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
-import Country from './Container/Country/Country';
-import City from './Container/Country/City';
-import Countryfun from './Container/Country/Countryfun';
-import Cityfun from './Container/Country/Cityfun';
-import Branch from './Container/Country/Branch';
-import Time from './Container/Country/Time/Time';
-import Timefun from './Container/Country/Time/Timefun';
-import Counter from './Container/Country/Counter';
-import Counterfun from './Container/Country/Counterfun';
+
+import { Route } from "react-router-dom";
+import { Switch } from "react-router-dom/cjs/react-router-dom.min";
+import About from "./Componets/About";
+import Doctors from "./Componets/Doctors/Doctors";
+import Department from "./Compont/Department/Department";
+import Footer from "./Compont/Footer/Footer";
+import Header from "./Compont/Header/Header";
+import Contect from "./Containers/Contect/Contect";
+import Home from "./Containers/Home/Home";
+
+
+
+
 function App() {
   return (
-    <div>
- {/* <City/> */}
-{/* <Country/> */}
-{/* <Countryfun/> */}
-   {/* <Cityfun/> */}
-  {/* <Branch/> */}
-  {/*  <Time/> */}
-  {/* <Timefun/>   */}
-  <Counterfun/> 
-    </div>
-      
+    <>
+           <Header/>
+             <Switch>
+              <Route exact path={"/"} component={Home}/> 
+              <Route exact path={"/department"} component={Department}/>
+              <Route exact path={"/doctors"} component={Doctors}/>
+              <Route exact path={"/about"} component={About}/>
+              <Route exact path={"/contect"} component={Contect}/>
+              </Switch> 
+           <Footer/>
+    </>
   );
-
-     
 }
+
 export default App;
-
-
-
-
-
-
