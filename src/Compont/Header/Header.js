@@ -30,24 +30,24 @@ function Header(props) {
                         <ul>
                             <li>
                                 {/* <a className="nav-link scrollto active" href="index.html">Home</a> */}
-                                <NavLink className="nav-link scrollto active" to={"/"}>Home</NavLink>
+                                <NavLink exact className="nav-link scrollto" to={"/"}>Home</NavLink>
                             </li>
                             <li>
                                 {/* <a className="nav-link scrollto" href="./pages/departments.html">Departments</a> */}
-                                <NavLink className="nav-link scrollto" to={"/department"}>Departments</NavLink>
+                                <NavLink exact className="nav-link scrollto" to={"/department"}>Departments</NavLink>
                             </li>
                             <li>
                                 {/* <a className="nav-link scrollto" href="./pages/doctors.html">Doctors</a> */}
-                                <NavLink className="nav-link scrollto" to={"/doctors"} >Doctors</NavLink>
+                                <NavLink exact className="nav-link scrollto" to={"/doctors"} >Doctors</NavLink>
                             </li>
                             <li>
                                 {/* <a className="nav-link scrollto " href="./pages/about.html">About</a> */}
-                                <NavLink className="nav-link scrollto " to={"/about"} >About</NavLink>
+                                <NavLink exact className="nav-link scrollto " to={"/about"} >About</NavLink>
 
                             </li>
                             <li>
                                 {/* <a className="nav-link scrollto" href="./pages/contact.html">Contact</a> */}
-                                <NavLink className="nav-link scrollto" to={"/contect"} >Contect </NavLink>
+                                <NavLink  exact className="nav-link scrollto" to={"/contect"} >Contect </NavLink>
 
                             </li>
                         </ul>
