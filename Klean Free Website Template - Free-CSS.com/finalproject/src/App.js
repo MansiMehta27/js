@@ -7,7 +7,6 @@ import Auth from "./Container/Auth/Auth";
 
 import Contect from "./Container/Contect/Contect";
 import Home from "./Container/Home/Home";
-import Login from "./Container/Login/Login";
 import Project from "./Container/Project/Project";
 import Service from "./Container/Service/Service";
 
@@ -22,7 +21,7 @@ function App() {
                                         <Route exact path={"/service"}component={Service}/>
                                         <Route exact path={"/project"}component={Project}/>
                                         <Route exact path={"/contect"}component={Contect}/>
-                                        <Route exact path={"/login"}component={Login}/>
+                
                                         <Route exact path={"/auth"}component={Auth}/>
                                 </Switch>
                   <Footer/>

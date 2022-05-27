@@ -1,6 +1,66 @@
+import * as yup from 'yup';
+import { useFormik } from 'formik';
+
 import React from 'react';
+import { Form } from 'formik';
+import { Formik } from 'formik';
+import { Container } from 'reactstrap';
+import { useState } from 'react';
 
 function Contect(props) {
+
+
+    const [userType, setUserType] = useState('Login')
+    const [Reset, setReset] = useState(false)
+
+    const Login = {
+        name: yup.string().required("enter your name"),
+        email: yup.string().email("enter valid email").required("pls enter mail"),
+        
+
+    }
+
+    let schema, initial;
+
+    if (userType === 'Login') {
+        schema = yup.object().shape(Login);
+        initial = {
+            name: '',
+            email: '',
+           
+
+        }
+    }
+    // else if (userType === 'Signup') {
+    //     schema = yup.object().shape(Signup);
+    //     initial = {
+    //         Name: '',
+    //         email: '',
+    //         }
+    // }
+    const handlelogin = (values) => {
+        console.log("loginhandle", values);
+    }
+    // const handlesignup=(values)=>{
+    //     console.log("signuphandle",values);
+    // }
+
+    const formik = useFormik({
+        initialValues: initial,
+        validationSchema: schema,
+        onSubmit: values => {
+            if (userType === 'login') {
+                handlelogin(values);
+            }
+            // else if(userType==='signup'){
+            //     handlesignup(values);  
+            // }
+            // alert(JSON.stringify(values, null, 2));
+        },
+    });
+
+    console.log(formik.errors.email);
+
     return (
         <div className="container-fluid py-5">
             <div className="container">
@@ -13,33 +73,44 @@ function Contect(props) {
                         <h4 className="font-weight-normal text-muted mb-3">Eirmod kasd duo eos et magna, diam dolore stet sea clita sit ea erat lorem. Ipsum eos ipsum magna lorem stet</h4>
                     </div>
                 </div>
+
+
                 <div className="row">
                     <div className="col-lg-7 mb-5 mb-lg-0">
                         <div className="contact-form">
                             <div id="success" />
-                            <form name="sentMessage" id="contactForm" noValidate="novalidate">
-                                <div className="form-row">
-                                    <div className="col-sm-6 control-group">
-                                        <input type="text" className="form-control p-4" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                            <Formik values={formik}>
+                                <Form onClick={formik.handleSubmit} name="sentMessage" id="contactForm" noValidate="novalidate">
+                                    <div className="form-row">
+                                        <div className="col-sm-6 control-group">
+                                            <input onChange={formik.handleChange} type="text" className="form-control p-4" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                                            <p className="help-block text-danger" />
+                                            {
+                                                formik.errors.name ? <p>{formik.errors.name}</p> : null
+                                            }
+                                        </div>
+                                        <div className="col-sm-6 control-group">
+                                            <input onChange={formik.handleChange} type="email" className="form-control p-4" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                            <p className="help-block text-danger" />
+                                            {
+                                                formik.errors.email ? <p>{formik.errors.email}</p> : null
+                                            }
+                                        </div>
+                                    </div>
+                                    {/* <div className="control-group">
+                                        <input type="text" className="form-control p-4" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
+                                        <p className="help-block text-danger" />
+                                      
+                                    </div> */}
+                                    <div className="control-group">
+                                        <textarea className="form-control p-4" rows={6} id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message" defaultValue={""} />
                                         <p className="help-block text-danger" />
                                     </div>
-                                    <div className="col-sm-6 control-group">
-                                        <input type="email" className="form-control p-4" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
-                                        <p className="help-block text-danger" />
+                                    <div>
+                                        <button className="btn btn-primary btn-block py-3 px-5" type="submit" id="sendMessageButton">Send Message</button>
                                     </div>
-                                </div>
-                                <div className="control-group">
-                                    <input type="text" className="form-control p-4" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
-                                    <p className="help-block text-danger" />
-                                </div>
-                                <div className="control-group">
-                                    <textarea className="form-control p-4" rows={6} id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message" defaultValue={""} />
-                                    <p className="help-block text-danger" />
-                                </div>
-                                <div>
-                                    <button className="btn btn-primary btn-block py-3 px-5" type="submit" id="sendMessageButton">Send Message</button>
-                                </div>
-                            </form>
+                                </Form>
+                            </Formik>
                         </div>
                     </div>
                     <div className="col-lg-5" style={{ minHeight: 400 }}>
@@ -50,6 +121,7 @@ function Contect(props) {
                 </div>
             </div>
         </div>
+
 
     );
 }
