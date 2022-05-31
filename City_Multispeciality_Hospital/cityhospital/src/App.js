@@ -21,6 +21,7 @@ function App() {
                                        <Route exact path={"/Login"} component={Login}/>
                                        
                                        <Route exact path={"/medisin"}component={Medisin}/>
+                                       <Route exact path={"/login"}component={Login}/>
                                  </Switch>
                   <Footer/>
 
