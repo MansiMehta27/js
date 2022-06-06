@@ -14,11 +14,14 @@ import { useEffect } from 'react';
 
 function Medisin(props) {
   const [open, setOpen] = useState(false);
+  const[dopen, setdopen]=useState(false);
   const [name, setname] = useState('');
   const [price, setprice] = useState('');
   const [quantity, setquantity] = useState('');
   const [expiry, setexpiry] = useState('');
   const [data, setdata] = useState([]);
+  const[did,setdid]=useState();
+  
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -26,20 +29,27 @@ function Medisin(props) {
 
   const handleClose = () => {
     setOpen(false);
+    setdopen(false);
+  };
+
+  const handledClickOpen = (params) => {
+    setdopen(true);
+    setdid(params.id);
   };
   const getdata = () => {
 
-    let localdata = JSON.parse(localStorage.getItem('medisin'));
+    let localdata = JSON.parse(localStorage.getItem('medicine'));
     if (localdata !== null) {
       setdata(localdata);
     }
   }
   const handleDelet =(params)=>{
-      let localdata1=JSON.parse(localStorage.getItem("medisin"));
-     let appdata = localdata1.filter((l,i)=>l.id!==params.id);
-     localStorage.setItem("medisin",JSON.stringify(appdata));
-
-     getdata();
+      let localdata1=JSON.parse(localStorage.getItem("medicine"));
+     let appdata = localdata1.filter((l,i)=>l.id!==did);
+     localStorage.setItem("medicine",JSON.stringify(appdata));
+    getdata();
+    setdid('');
+    handleClose('');
   }
   useEffect(
     () => {
@@ -47,6 +57,8 @@ function Medisin(props) {
     },
   [])
   const handlesubmit = () => {
+
+    console.log(name,price,quantity,expiry)
     let data = {
       id: Math.floor(Math.random() * 1000),
       name,
@@ -55,13 +67,13 @@ function Medisin(props) {
       expiry
     };
 
-    let localdata = JSON.parse(localStorage.getItem('medisin'));
+    let localdata = JSON.parse(localStorage.getItem('medicine'));
     if (localdata === null) {
-      localStorage.setItem('medisin', JSON.stringify([data]));
+      localStorage.setItem('medicine', JSON.stringify([data]));
     }
     else {
       localdata.push(data)
-      localStorage.setItem('medisin', JSON.stringify(localdata));
+      localStorage.setItem('medicine', JSON.stringify(localdata));
     }
 
     handleClose();
@@ -86,15 +98,12 @@ function Medisin(props) {
       width: 130,
       renderCell: (params) => {
         return (
-          <IconButton aria-label="delete" onClick={()=>handleDelet(params)}>
+          <IconButton aria-label="delete" onClick={()=>handledClickOpen(params)}>
             <DeleteIcon />
           </IconButton>
         )
       }
     },
-
-
-
   ]
   return (
     <div>
@@ -165,6 +174,23 @@ function Medisin(props) {
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
           <Button onClick={handlesubmit}>submit</Button>
+        </DialogActions>
+      </Dialog>
+      <Dialog
+        open={dopen}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"are u sure delete?"}
+        </DialogTitle>
+
+        <DialogActions>
+          <Button onClick={handleClose}>no</Button>
+          <Button onClick={handleDelet} autoFocus>
+            yes
+          </Button>
         </DialogActions>
       </Dialog>
     </div>
