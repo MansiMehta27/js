@@ -1,5 +1,7 @@
 import { Route } from "react-router-dom";
 import { Switch } from "react-router-dom/cjs/react-router-dom.min";
+import Bookappointment from "./Appointment/Bookappointment";
+import Listappointment from "./Appointment/Listappointment";
 import Footer from "./Componet/Footer/Footer";
 import Header from "./Componet/Header/Header";
 import Blog from "./Container/Blog/Blog";
@@ -18,6 +20,8 @@ function App() {
                               <Route exact path={"/product"} component={Product}/>
                               <Route exact path={"/blog"}component={Blog}/>
                               <Route exact path={"/contect"}component={Contect}/>
+                              <Route exact path={"/bookappointment"}component={Bookappointment}/>
+                              <Route exact path={"/listappointment"}component={Listappointment}/>
                 </Switch>   
               <Footer/>
 
