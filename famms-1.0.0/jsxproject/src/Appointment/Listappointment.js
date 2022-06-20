@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 function Listappointment(props) {
+    const[data,setdata]=useState([]);
+    const localdata = ()=>{
+        let localdata=JSON.parse(localStorage.getItem("apt"))
+        setdata(localdata)
+    }
+    useEffect(()=>{
+
+            localdata();
+    },
+    [])
     return (
+
         <main id="main">
             <section id="appointment" className="appointment">
                 <div className="container">
@@ -21,6 +32,15 @@ function Listappointment(props) {
                         </div>
                     </div>
                 </div>
+                {
+                        data.map((d,i)=>{
+                            return(
+                                <>
+                                        <h2>{d.name}</h2>
+                                </>
+                            )
+                        })
+                }
             </section>
         </main>
     );
