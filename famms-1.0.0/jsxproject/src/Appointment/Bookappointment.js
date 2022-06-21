@@ -8,14 +8,19 @@ function Bookappointment(props) {
     const history = useHistory()
 
     const handleInsert = (values) =>{
+        let idata = {
+            id : Math.floor(Math.random()* 1000),
+            ...values
+        }
         let appoinData = JSON.parse(localStorage.getItem("apt"));
 
             if(appoinData == null){
-                localStorage.setItem("apt", JSON.stringify([values]))
+                localStorage.setItem("apt", JSON.stringify([idata]))
             }else{
-                appoinData.push(values)
+                appoinData.push(idata)
                 localStorage.setItem("apt", JSON.stringify(appoinData))
             }
+            
         history.push("/listappointment");
     }
 
@@ -26,7 +31,7 @@ function Bookappointment(props) {
         date: yup.string().required("please select date"),
         department: yup.string().required("please select department"),
         message: yup.string().required("please select message")
-    });
+  });
 
     const formik = useFormik({
         initialValues: {
@@ -42,7 +47,7 @@ function Bookappointment(props) {
             handleInsert(values)
         },
     });
-    const{handleSubmit, errors, handleChange, touched, handleBlur}=formik
+    const{handleSubmit, errors, handleChange, touched, handleBlur,values}=formik
     
     return (
         <main id="main">
@@ -76,6 +81,7 @@ function Bookappointment(props) {
                                         data-msg="Please enter at least 4 chars"
                                         error={Boolean(errors.name && touched.name)}
                                         errorMessage={errors.name}
+                                        value={values.name}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         />
@@ -90,6 +96,7 @@ function Bookappointment(props) {
                                         error={Boolean(errors.email && touched.email)}
                                         errorMessage={errors.email}
                                         onChange={handleChange}
+                                        value={values.email}
                                         onBlur={handleBlur}
                                         />
                                 </div>
@@ -103,6 +110,7 @@ function Bookappointment(props) {
                                         placeholder="Your Phone"
                                         error={Boolean(errors.phone && touched.phone)}
                                         errorMessage={errors.phone}
+                                        values={values.phone}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         />
@@ -118,6 +126,7 @@ function Bookappointment(props) {
                                         placeholder="Appointment Date"
                                         error={Boolean(errors.date && touched.date)}
                                         errorMessage={errors.date}
+                                        value={values.data}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         />
@@ -130,6 +139,7 @@ function Bookappointment(props) {
                                         className="form-select" 
                                         error={Boolean(errors.department && touched.department)}
                                         errorMessage={errors.department}
+                                        value={values.department}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         >
@@ -149,6 +159,7 @@ function Bookappointment(props) {
                                     defaultValue={""}
                                     error={Boolean(errors.message && touched.message)}
                                     errorMessage={errors.message}
+                                    value={values.message}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     />

@@ -1,15 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 
 function Listappointment(props) {
+    const history = useHistory()
     const[data,setdata]=useState([]);
     const localdata = ()=>{
         let localdata=JSON.parse(localStorage.getItem("apt"))
         setdata(localdata)
     }
+   const handleDelete=(id)=>{
+            let localdata = JSON.parse(localStorage.getItem("apt"));
+            let dData = localdata.filter((l,i)=>l.id !== id)
+            localStorage.setItem("apt",JSON.stringify(dData));
+            localdata();
+    }
+    const handleEdit=(id)=>{
+
+      history.push("/bookappointment",{"id":id})
+
+    }
     useEffect(()=>{
 
-            localdata();
+         localdata();
     },
     [])
     return (
@@ -37,7 +49,10 @@ function Listappointment(props) {
                             return(
                                 <>
                                         <h2>{d.name}</h2>
+                                        <button onClick={()=>handleDelete(d.id)}>Delete</button>
+                                        <button onClick={()=>handleEdit(d.id)}>Edit</button>
                                 </>
+                               
                             )
                         })
                 }
