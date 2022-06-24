@@ -4,7 +4,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 function Listappointment(props) {
     const history = useHistory()
     const[data,setdata]=useState([]);
-    const localdata = ()=>{
+    const loaddata = ()=>{
         let localdata=JSON.parse(localStorage.getItem("apt"))
         setdata(localdata)
     }
@@ -12,7 +12,7 @@ function Listappointment(props) {
             let localdata = JSON.parse(localStorage.getItem("apt"));
             let dData = localdata.filter((l,i)=>l.id !== id)
             localStorage.setItem("apt",JSON.stringify(dData));
-            localdata();
+            loaddata();
     }
     const handleEdit=(id)=>{
 
@@ -21,7 +21,7 @@ function Listappointment(props) {
     }
     useEffect(()=>{
 
-         localdata();
+        loaddata();
     },
     [])
     return (

@@ -1,10 +1,11 @@
 import { Form, Formik, useFormik } from 'formik';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import * as yup from 'yup';
 import Inputbox from '../Componet/Inputbox/Inputbox';
 
 function Bookappointment(props) {
+    const [update,setUpdate]=useState(false)
     const history = useHistory()
 
     const handleInsert = (values) =>{
@@ -21,6 +22,22 @@ function Bookappointment(props) {
                 localStorage.setItem("apt", JSON.stringify(appoinData))
             }
             
+        history.push("/listappointment");
+    }
+
+    const handleUpdateDate = (values)=>{
+        let localdata = JSON.parse(localStorage.getItem("apt"));
+        let uData = localdata.map((l)=>{
+            if(l.id===values.id){
+                    return values
+            }
+            else{
+                    return l
+            }
+        })
+        localStorage.setItem("apt",JSON.stringify(uData));
+        setUpdate(false);
+        formik.resetForm();
         history.push("/listappointment");
     }
 
@@ -44,9 +61,24 @@ function Bookappointment(props) {
         },
         validationSchema: schema,
         onSubmit: (values) => {
-            handleInsert(values)
-        },
+            if(update)
+            {
+                handleUpdateDate(values)
+            }
+            else{
+                handleInsert(values)
+            }
+           },
     });
+    useEffect(()=>{
+        if(props.location.state){
+            let localdata = JSON.parse(localStorage.getItem("apt"));
+            let dData = localdata.filter((l)=>l.id===props.location.state.id);
+            formik.setValues(dData[0]);
+            setUpdate(true)
+        }
+    },
+    [])
     const{handleSubmit, errors, handleChange, touched, handleBlur,values}=formik
     
     return (
@@ -110,7 +142,7 @@ function Bookappointment(props) {
                                         placeholder="Your Phone"
                                         error={Boolean(errors.phone && touched.phone)}
                                         errorMessage={errors.phone}
-                                        values={values.phone}
+                                        value={values.phone}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         />
@@ -126,7 +158,7 @@ function Bookappointment(props) {
                                         placeholder="Appointment Date"
                                         error={Boolean(errors.date && touched.date)}
                                         errorMessage={errors.date}
-                                        value={values.data}
+                                        value={values.date}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         />
@@ -169,7 +201,15 @@ function Bookappointment(props) {
                                 <div className="error-message" />
                                 <div className="sent-message">Your appointment request has been sent successfully. Thank you!</div>
                             </div>
-                            <div className="text-center"><button type='submit'>Submit</button></div>
+                            {
+                                update ?(
+                                    <div className="text-center"><button type='submit'>Update An Appointment</button></div>
+                                )
+                                :
+                                (
+                                    <div className="text-center"><button type='submit'>Make An Appointment</button></div>
+                                )
+                            }
                         </Form>
                     </Formik>
                 </div>
